@@ -1,1 +1,2 @@
-export * from './goPage.js'
+export * from './fs.js'
+export * from './tool.js'
