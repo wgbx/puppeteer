@@ -1,7 +1,4 @@
-import puppeteer from 'puppeteer'
-
-export async function goPage() {
-  const browser = await puppeteer.launch({ headless: false })
+export async function goPage(browser) {
   const page = await browser.newPage({})
   await page.goto('https://developer.chrome.com/')
   await page.setViewport({ width: 1080, height: 1024 })
