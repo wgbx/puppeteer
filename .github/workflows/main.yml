@@ -1,3 +1,10 @@
+name: PNPM Dev Workflow
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   pnpm-dev:
     runs-on: ubuntu-latest
