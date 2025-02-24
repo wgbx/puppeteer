@@ -20,16 +20,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18  # 可以根据项目需求修改 Node.js 版本
-          cache: 'pnpm'  # 使用 PNPM 缓存来加速依赖安装
 
-      # 步骤 3：安装 PNPM
-      - name: Install PNPM
-        run: npm install -g pnpm
-
-      # 步骤 4：安装项目依赖
+      # 步骤 3：安装项目依赖
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
-      # 步骤 5：执行 pnpm dev 命令
-      - name: Run pnpm dev
-        run: pnpm dev
+      # 步骤 4：执行 pnpm dev 命令
+      - name: Run npm dev
+        run: npm run dev
