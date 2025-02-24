@@ -1,0 +1,32 @@
+name: PNPM Dev Workflow
+
+# 触发条件：当代码推送到仓库时执行
+on:
+  push:
+    branches:
+      - main  # 可以根据需要修改为你想要监听的分支
+
+jobs:
+  pnpm-dev:
+    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版本的运行器
+
+    steps:
+      # 步骤 1：检出代码到运行器
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 步骤 2：设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22  # 可以根据项目需求修改 Node.js 版本
+
+      # 步骤 3：安装项目依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 步骤 4：执行 pnpm dev 命令
+      - name: Run npm dev
+        env:
+          JD_COOKIE_VALUE: ${{ secrets.JD_COOKIE_VALUE }}
+        run: npm run dev
