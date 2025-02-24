@@ -27,4 +27,6 @@ jobs:
 
       # 步骤 4：执行 pnpm dev 命令
       - name: Run npm dev
+        env:
+          JD_COOKIE_VALUE: ${{ secrets.JD_COOKIE_VALUE }}
         run: npm run dev
