@@ -15,10 +15,11 @@ export async function goPage(browser) {
 export async function goJD(browser) {
   const page = await browser.newPage({})
   await page.setViewport({ width: 1920, height: 1080 })
-  console.log('🚀 ~ goJD ~ page:', process.env.JD_COOKIE_VALUEage)
   await page.setCookie({ name: JD_COOKIE_KEY, value: process.env.JD_COOKIE_VALUE, domain: JD_COOKIE_DOMAIN })
   await page.goto(JD_SIGN_PAGE)
   const signButton = await page.waitForSelector(JD_SIGN_BUTTON)
   await signButton.click()
   console.log('🚀 ~ goJD ~ signButton:', '签到成功')
+  await browser.close()
+  process.exit(0)
 }
