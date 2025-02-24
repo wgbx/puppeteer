@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer'
-import { goPage, screenshot } from './action/index.js'
+import { goPage, goJD, screenshot } from './action/index.js'
+import 'dotenv/config'
 
 const argument = process.argv[2]
 const scriptName = process.env.npm_lifecycle_event
@@ -12,4 +13,6 @@ switch (argument) {
   case 'screenshot':
     screenshot(browser)
     break
+  default:
+    goJD(browser)
 }
