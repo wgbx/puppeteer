@@ -1,0 +1,35 @@
+name: PNPM Dev Workflow
+
+# 触发条件：当代码推送到仓库时执行
+on:
+  push:
+    branches:
+      - main  # 可以根据需要修改为你想要监听的分支
+
+jobs:
+  pnpm-dev:
+    runs-on: ubuntu-latest  # 使用 Ubuntu 最新版本的运行器
+
+    steps:
+      # 步骤 1：检出代码到运行器
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 步骤 2：设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # 可以根据项目需求修改 Node.js 版本
+          cache: 'pnpm'  # 使用 PNPM 缓存来加速依赖安装
+
+      # 步骤 3：安装 PNPM
+      - name: Install PNPM
+        run: npm install -g pnpm
+
+      # 步骤 4：安装项目依赖
+      - name: Install dependencies
+        run: pnpm install
+
+      # 步骤 5：执行 pnpm dev 命令
+      - name: Run pnpm dev
+        run: pnpm dev
