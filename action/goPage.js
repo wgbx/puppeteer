@@ -1,4 +1,4 @@
-import { JD_SIGN_PAGE, JD_SIGN_BUTTON } from '../constant/index.js'
+import { JD_COOKIE_KEY, JD_COOKIE_DOMAIN, JD_SIGN_PAGE, JD_SIGN_BUTTON } from '../constant/index.js'
 
 export async function goPage(browser) {
   const page = await browser.newPage({})
@@ -15,7 +15,7 @@ export async function goPage(browser) {
 export async function goJD(browser) {
   const page = await browser.newPage({})
   await page.setViewport({ width: 1920, height: 1080 })
-  // await page.setCookie({ name: JD_COOKIE_KEY, value: process.env.JD_COOKIE_VALUE, domain: JD_COOKIE_DOMAIN })
+  await page.setCookie({ name: JD_COOKIE_KEY, value: process.env.JD_COOKIE_VALUE, domain: JD_COOKIE_DOMAIN })
   await page.goto(JD_SIGN_PAGE)
   const signButton = await page.waitForSelector(JD_SIGN_BUTTON)
   await signButton.click()
