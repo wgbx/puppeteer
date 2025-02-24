@@ -8,7 +8,7 @@ on:
 jobs:
   pnpm-dev:
     runs-on: ubuntu-latest
-    timeout-minutes: 0.5 
+    timeout-minutes: 1  # 设置整个作业的最大执行时间为 1 分钟
 
     steps:
       - name: Checkout code
@@ -27,5 +27,10 @@ jobs:
           JD_COOKIE_VALUE: ${{ secrets.JD_COOKIE_VALUE }}
         run: |
           echo "Starting npm run dev..."
-          timeout 30s npm run dev || true 
-          echo "Task completed or timed out after 30 seconds"
+          set -e  # 当命令执行失败时，立即退出脚本
+          timeout 30s npm run dev
+          if [ $? -eq 124 ]; then
+            echo "Task timed out after 30 seconds"
+          else
+            echo "Task completed successfully"
+          fi
