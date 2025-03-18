@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 8 * * *' # 每天 8:00 触发
 
 jobs:
   pnpm-dev:
@@ -19,6 +21,18 @@ jobs:
         with:
           node-version: 22
 
+      - name: Generate random delay
+        id: random-delay
+        run: |
+          delay=$((RANDOM % 6))
+          echo "::set-output name=delay::$delay"
+
+      - name: Wait for random delay
+        run: |
+          delay=${{ steps.random-delay.outputs.delay }}
+          echo "Waiting for $delay minutes..."
+          sleep $((delay * 60))
+
       - name: Install dependencies
         run: npm install
 
@@ -28,4 +42,4 @@ jobs:
         run: |
           echo "Starting npm run dev..."
           timeout 30s npm run dev || true 
-          echo "Task completed or timed out after 30 seconds"
+          echo "Task completed or timed out after 30 seconds"    
