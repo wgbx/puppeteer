@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 8 * * *' # 每天 8:00 触发
+    - cron: '0 1 * * *'
 
 jobs:
   pnpm-dev:
@@ -25,7 +25,7 @@ jobs:
         id: random-delay
         run: |
           delay=$((RANDOM % 6))
-          echo "::set-output name=delay::$delay"
+          echo "delay=$delay" >> $GITHUB_OUTPUT
 
       - name: Wait for random delay
         run: |
