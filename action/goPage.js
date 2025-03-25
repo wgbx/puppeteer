@@ -18,11 +18,13 @@ export async function goJD(browser) {
   await page.setCookie({ name: JD_COOKIE_KEY, value: process.env.JD_COOKIE_VALUE, domain: JD_COOKIE_DOMAIN })
   await page.goto(JD_SIGN_PAGE)
   try {
-    const signButton = await page.waitForSelector(JD_SIGN_BUTTON, {timeout: 1000})
+    const signButton = await page.waitForSelector(JD_SIGN_BUTTON, { timeout: 1000 })
     await signButton.click()
+    console.info('🚀 ~ goJD:', '签到成功')
     await browser.close()
     process.exit(0)
   } catch (err) {
+    console.error('🚀 ~ goJD:', '失败')
     process.exit(1)
   }
 }
