@@ -40,6 +40,6 @@ jobs:
         env:
           JD_COOKIE_VALUE: ${{ secrets.JD_COOKIE_VALUE }}
         run: |
-          echo "Starting npm run dev..."
-          timeout 30s npm run dev || true
+          echo "Starting npm run start..."
+          timeout 30s npm run start || true
           echo "Task completed or timed out after 30 seconds"
