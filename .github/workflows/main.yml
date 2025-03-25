@@ -10,7 +10,7 @@ on:
 jobs:
   pnpm-dev:
     runs-on: ubuntu-latest
-    timeout-minutes: 0.5 
+    timeout-minutes: 0.5
 
     steps:
       - name: Checkout code
@@ -36,10 +36,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run npm dev
+      - name: Run npm start
         env:
           JD_COOKIE_VALUE: ${{ secrets.JD_COOKIE_VALUE }}
         run: |
           echo "Starting npm run dev..."
-          timeout 30s npm run dev || true 
-          echo "Task completed or timed out after 30 seconds"    
+          timeout 30s npm run dev || true
+          echo "Task completed or timed out after 30 seconds"
