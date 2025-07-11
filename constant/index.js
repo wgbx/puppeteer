@@ -1,9 +1,7 @@
-export const JD_COOKIE_KEY ='flash'
+import { JD_CONFIG } from '../config/index.js'
 
-export const JD_COOKIE_DOMAIN ='.jd.com'
-
-export const JD_SIGN_PAGE ='https://interact.jd.com/'
-
-export const JD_SIGN_BUTTON = '#bean-sign-component .btn'
-
-export const JD_COOKIE_VALUE = process.env.JD_COOKIE_VALUE
+export const JD_COOKIE_KEY = JD_CONFIG.COOKIE_KEY
+export const JD_COOKIE_DOMAIN = JD_CONFIG.COOKIE_DOMAIN
+export const JD_SIGN_PAGE = JD_CONFIG.SIGN_PAGE
+export const JD_SIGN_BUTTON = JD_CONFIG.SIGN_BUTTON
+export const JD_COOKIE_VALUE = JD_CONFIG.COOKIE_VALUE

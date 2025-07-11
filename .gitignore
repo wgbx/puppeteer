@@ -1,4 +1,37 @@
-node_modules
-screenshot
-dist
+# 依赖
+node_modules/
+pnpm-lock.yaml
+
+# 环境变量
 .env
+.env.local
+.env.*.local
+
+# 日志文件
+logs/
+*.log
+
+# 截图文件
+screenshots/
+
+# 测试覆盖率
+coverage/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+__test_temp__/
+
+# 构建输出
+dist/
+build/

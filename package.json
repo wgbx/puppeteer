@@ -1,22 +1,45 @@
 {
   "name": "puppeteer-auto",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "type": "module",
+  "description": "基于 Puppeteer 的网页自动化工具，支持页面访问、截图和京东签到等功能",
+  "keywords": [
+    "puppeteer",
+    "automation",
+    "web-scraping",
+    "screenshot",
+    "jd-sign"
+  ],
+  "author": "",
+  "license": "ISC",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "dev:action": "nodemon index.js"
+    "page": "node index.js page",
+    "screenshot": "node index.js screenshot",
+    "jd": "node index.js jd",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "dotenv": "^16.4.7",
     "nodemon": "^3.1.9",
     "puppeteer": "^23.6.1"
   },
   "devDependencies": {
-    "prettier": "^3.3.3"
-  }
+    "prettier": "^3.3.3",
+    "eslint": "^8.57.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/puppeteer-auto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/puppeteer-auto/issues"
+  },
+  "homepage": "https://github.com/yourusername/puppeteer-auto#readme"
 }
